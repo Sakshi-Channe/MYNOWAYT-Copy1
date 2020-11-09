@@ -1,9 +1,60 @@
-import 'package:flutter/material.dart';
-import 'User_dashboardTabAll.dart' as second;
-import 'User_dahboardallrestro.dart'as first;
-import 'User_dashboardAirportrestro.dart' as third;
 
-class user_maindashboard extends StatelessWidget {
+
+import 'package:flutter/material.dart';
+import 'package:location/location.dart';
+import 'package:nowayt_copy1/User_dashboardMallrestro.dart' as second;
+import 'User_dashboardAirportrestro.dart' as third;
+import 'package:geolocator/geolocator.dart';
+//import 'package:location/location.dart';
+import 'package:geocoder/geocoder.dart';
+
+class user_maindashboard extends StatefulWidget {
+  String username;
+  user_maindashboard({Key key , @required this.username}):super(key:key);
+  @override
+  _user_maindashboardState createState() => _user_maindashboardState();
+}
+
+class _user_maindashboardState extends State<user_maindashboard> {
+  String latitude="";
+  String longitude="";
+  String username;
+  String addr1="";
+  String addr2="";
+
+
+  _user_maindashboardState({this.username});
+  @override
+  void initState(){
+    super.initState();
+
+    _getCurrentLocation();
+    //_getaddress();
+  }
+
+  _getCurrentLocation()async{
+    //final geoposition=await Geolocation().getCurrentPosition(desiredAccuracy : LocationAccuracy.high);
+    final  position= await Geolocator.getCurrentPosition();
+    setState(() {
+      latitude='${position.latitude}';
+      longitude='${position.longitude}';
+
+    });
+    final coordinates=new Coordinates(position.latitude,position.longitude);
+    var addresses=await Geocoder.local.findAddressesFromCoordinates(coordinates);
+    //var first=addresses.first;
+    setState(() {
+      //addr1='${addresses.first.locality}';
+      addr2='${addresses.first.featureName}';
+      //print(addr1);
+    });
+
+  }
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,9 +66,19 @@ class user_maindashboard extends StatelessWidget {
           appBar: new AppBar(
             centerTitle: true,
             backgroundColor: Colors.grey,
-            title: Text("Location", textAlign: TextAlign.center),
+            title: Text(username!=null?username:"Tanmai", textAlign: TextAlign.center),
+
             actions: <Widget>[
+              /*Padding(
+                padding : EdgeInsets.only(top:20),
+                 child : FlatButton(
+                  child: Text(addr1),
+                  textColor: Colors.white,
+                  onPressed: () {},
+                ),
+              ),*/
               FlatButton(
+                child: Text(addr2),
                 textColor: Colors.white,
                 onPressed: () {},
               ),
@@ -137,6 +198,8 @@ class user_maindashboard extends StatelessWidget {
       ),
     );
   }
+
+
 }
 
 class Choice {
@@ -164,9 +227,7 @@ class ChoicePage extends StatelessWidget {
       color: Colors.white,
       child: Center(
         child: TabBarView(
-          //controller: controller,
-          //mainAxisSize: MainAxisSize.min,
-          //crossAxisAlignment: CrossAxisAlignment.center,
+
           children: <Widget>[
             new second.dashboard_malls(),
             new second.dashboard_malls(),
@@ -180,7 +241,6 @@ class ChoicePage extends StatelessWidget {
     );
   }
 }
-
 
 
 

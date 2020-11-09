@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nowayt_copy1/User_dashboardTabAll.dart';
+import 'package:nowayt_copy1/User_dashboardMallrestro.dart';
 
 class ProductBox extends StatelessWidget {
   ProductBox( {Key key,this.name, this.city, this.price, this.image}) :

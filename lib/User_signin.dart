@@ -153,6 +153,7 @@ class _User_loginState extends State<User_login> {
           try {
             if (mail == values["E-mail"]) {
               if (pass == values["Password"]) {
+
                 Fluttertoast.showToast(
                     msg: "Login Sucessful!",
                     toastLength: Toast.LENGTH_SHORT,
@@ -163,9 +164,11 @@ class _User_loginState extends State<User_login> {
                     fontSize: 16.0
 
                 );
+                String username_in;
+                username_in=nameController.text;
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => user_maindashboard()),
+                  MaterialPageRoute(builder: (context) => user_maindashboard(username: username_in)),
                 );
 
               }
