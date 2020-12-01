@@ -66,7 +66,7 @@ class _user_maindashboardState extends State<user_maindashboard> {
           appBar: new AppBar(
             centerTitle: true,
             backgroundColor: Colors.grey,
-            title: Text(username!=null?username:"Tanmai", textAlign: TextAlign.center),
+            //title: Text(username!=null?username:"Tanmai", textAlign: TextAlign.center),
 
             actions: <Widget>[
               /*Padding(
@@ -78,7 +78,7 @@ class _user_maindashboardState extends State<user_maindashboard> {
                 ),
               ),*/
               FlatButton(
-                child: Text(addr2),
+                child: Text(addr1),
                 textColor: Colors.white,
                 onPressed: () {},
               ),
@@ -227,7 +227,6 @@ class ChoicePage extends StatelessWidget {
       color: Colors.white,
       child: Center(
         child: TabBarView(
-
           children: <Widget>[
             new second.dashboard_malls(),
             new second.dashboard_malls(),
