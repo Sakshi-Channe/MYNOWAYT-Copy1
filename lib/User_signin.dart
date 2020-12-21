@@ -153,7 +153,6 @@ class _User_loginState extends State<User_login> {
           try {
             if (mail == values["E-mail"]) {
               if (pass == values["Password"]) {
-
                 Fluttertoast.showToast(
                     msg: "Login Sucessful!",
                     toastLength: Toast.LENGTH_SHORT,

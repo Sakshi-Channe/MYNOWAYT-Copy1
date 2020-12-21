@@ -96,7 +96,7 @@ class _payment_gatewayState extends State<payment_gateway> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Razor Pay Tutorial"),
+        title: Text(" Razor Pay Gateway"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(30.0),

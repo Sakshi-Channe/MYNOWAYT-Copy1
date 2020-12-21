@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:nowayt_copy1/User_dashboardMallrestro.dart' as second;
@@ -18,12 +16,12 @@ class user_maindashboard extends StatefulWidget {
 class _user_maindashboardState extends State<user_maindashboard> {
   String latitude="";
   String longitude="";
-  String username;
+
   String addr1="";
   String addr2="";
 
 
-  _user_maindashboardState({this.username});
+
   @override
   void initState(){
     super.initState();
@@ -78,7 +76,7 @@ class _user_maindashboardState extends State<user_maindashboard> {
                 ),
               ),*/
               FlatButton(
-                child: Text(addr1),
+                child: Text("${widget.username}"),
                 textColor: Colors.white,
                 onPressed: () {},
               ),
