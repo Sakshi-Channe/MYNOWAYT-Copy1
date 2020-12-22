@@ -1,13 +1,13 @@
 class restaurant_data {
   //String user_id;
   final String type1;
-  final String item1;
+  final String menu1;
   final String type2;
-  final String item2;
+  final String menu2;
   /*final String address;
   final String location;*/
 
-  restaurant_data(this.type1,this.item1, this.type2, this.item2);
+  restaurant_data(this.type1,this.menu1, this.type2, this.menu2);
 
   /*User.fromJson(Map<String, dynamic> json)
       : email = json['email'],
@@ -21,9 +21,9 @@ class restaurant_data {
   Map<String, dynamic> toJson() =>
       {
         'type1': type1,
-        'item1': item1,
+        'item1': menu1,
         'type2': type2,
-        'item2': item2
+        'item2': menu2
       };
 }
 
